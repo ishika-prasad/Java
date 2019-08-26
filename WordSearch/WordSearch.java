@@ -8,7 +8,7 @@
 
 /**
  * This program checks if the word entered by the user is present in the
- * given file in horizontally, vertically or diagonally either inn forward or
+ * given file in horizontally, vertically or diagonally either in forward or
  * reverse orientation.
  *
  *
