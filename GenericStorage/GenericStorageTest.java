@@ -1,0 +1,116 @@
+/*
+ * GenericStorageTest.java
+ *
+ * Version:
+ *     1
+ */
+
+/**
+ * Test class for Integer type and String type
+ *
+ * @author  Ishika Prasad
+ * @author  Pavitra Sapaliga
+ */
+public class GenericStorageTest
+{
+    //Test cases for Integer
+    public static void individualTest(StorageInterface<Integer> is)
+    {
+        System.out.println("Testing " + is.getClass());
+        System.out.println("Should be\n\t0\n\t" + is.size());
+        is.add(1);
+        is.addAll((new Integer[]{2, 3, 4}));
+        System.out.println("Should be\n\t4\n\t" + is.size());
+        System.out.println("Should be\n\t{1, 2, 3, 4}\n\t" + is);
+        is.addAll(0, new Integer[]{5, 6, 7});
+        System.out.println("Should be\n\t{5, 6, 7, 1, 2, 3, 4}\n\t" + is);
+        is.sort();
+        System.out.println("Should be\n\t{1, 2, 3, 4, 5, 6, 7}\n\t" + is);
+        is.add(1, 3);
+        System.out.println("Should be\n\t{1, 3, 2, 3, 4, 5, 6, 7}\n\t" + is);
+        System.out.println("Should be\n\t1\n\t" + is.indexOf(3));
+        System.out.println("Should be\n\t3\n\t" + is.lastIndexOf(3));
+        is.remove(new Integer(3));
+        System.out.println("Should be\n\t{1, 2, 3, 4, 5, 6, 7}\n\t" + is);
+        is.remove(6);
+        System.out.println("Should be\n\t{1, 2, 3, 4, 5, 6}\n\t" + is);
+        System.out.println("Should be\n\tfalse\n\t" + is.contains(7));
+        System.out.println("Should be\n\ttrue\n\t" + is.contains(4));
+        System.out.println("Should be\n\tfalse\n\t" + is.containsAll(new Integer[]{4, 5, 6, 7}));
+        System.out.println("Should be\n\ttrue\n\t" + is.containsAll(new Integer[]{4, 5, 6}));
+        System.out.println("Should be\n\t21\n\t" + is.hashCode());
+        System.out.println("Should be\n\tfalse\n\t" + is.removeAll(new Integer[]{7, 8, 9}));
+        System.out.println("Should be\n\t{1, 2, 3, 4, 5, 6}\n\t" + is);
+        System.out.println("Should be\n\ttrue\n\t" + is.removeAll(new Integer[]{6, 7, 8}));
+        System.out.println("Should be\n\t{1, 2, 3, 4, 5}\n\t" + is);
+        System.out.println("Should be\n\ttrue\n\t" + is.removeAll(new Integer[]{4, 5}));
+        System.out.println("Should be\n\t{1, 2, 3}\n\t" + is);
+        is.clear();
+        System.out.println("should be\n\tempty\n\t" + is.isEmpty() + " : " + is);
+        System.out.println("Should be\n\t0\n\t" + is.hashCode());
+    }
+
+    //Test cases for String
+    public static void stringIndividualTest(StorageInterface<String> is)
+    {
+        System.out.println("Testing " + is.getClass());
+        System.out.println("Should be\n\t0\n\t" + is.size());
+        is.add("1");
+        is.addAll((new String[]{"2", "3", "4"}));
+        System.out.println("Should be\n\t4\n\t" + is.size());
+        System.out.println("Should be\n\t{1, 2, 3, 4}\n\t" + is);
+        is.addAll(0, new String[]{"5", "6", "7"});
+        System.out.println("Should be\n\t{5, 6, 7, 1, 2, 3, 4}\n\t" + is);
+        is.sort();
+        System.out.println("Should be\n\t{1, 2, 3, 4, 5, 6, 7}\n\t" + is);
+        is.add(1, "3");
+        System.out.println("Should be\n\t{1, 3, 2, 3, 4, 5, 6, 7}\n\t" + is);
+        System.out.println("Should be\n\t1\n\t" + is.indexOf("3"));
+        System.out.println("Should be\n\t3\n\t" + is.lastIndexOf("3"));
+        is.remove(new String("3"));
+        System.out.println("Should be\n\t{1, 2, 3, 4, 5, 6, 7}\n\t" + is);
+        is.remove(6);
+        System.out.println("Should be\n\t{1, 2, 3, 4, 5, 6}\n\t" + is);
+        System.out.println("Should be\n\tfalse\n\t" + is.contains("7"));
+        System.out.println("Should be\n\ttrue\n\t" + is.contains("4"));
+        System.out.println("Should be\n\tfalse\n\t" + is.containsAll(new String[]{"4", "5", "6", "7"}));
+        System.out.println("Should be\n\ttrue\n\t" + is.containsAll(new String[]{"4", "5", "6"}));
+        System.out.println("Should be\n\t309\n\t" + is.hashCode());
+        System.out.println("Should be\n\tfalse\n\t" + is.removeAll(new String[]{"7", "8", "9"}));
+        System.out.println("Should be\n\t{1, 2, 3, 4, 5, 6}\n\t" + is);
+        System.out.println("Should be\n\ttrue\n\t" + is.removeAll(new String[]{"6", "7", "8"}));
+        System.out.println("Should be\n\t{1, 2, 3, 4, 5}\n\t" + is);
+        System.out.println("Should be\n\ttrue\n\t" + is.removeAll(new String[]{"4", "5"}));
+        System.out.println("Should be\n\t{1, 2, 3}\n\t" + is);
+        is.clear();
+        System.out.println("should be\n\tempty\n\t" + is.isEmpty() + " : " + is);
+        System.out.println("Should be\n\t0\n\t" + is.hashCode());
+    }
+
+    public static void main(String[] args)
+    {
+        //For Integer
+        StorageInterface<Integer> ill = new LinkedList<Integer>();
+        individualTest(ill);
+        StorageInterface<Integer> ial = new ArrayList<Integer>();
+        individualTest(ial);
+        System.out.println("Should be\n\ttrue\n\t" + ill.contentEquals(ial));
+        ial.add(1);
+        System.out.println("Should be\n\tfalse\n\t" + ill.contentEquals(ial));
+        ill.add(1);
+        System.out.println("Should be\n\ttrue\n\t" + ill.contentEquals(ial));
+
+        //For String
+        StorageInterface<String> illString = new LinkedList<String>();
+        stringIndividualTest(illString);
+        StorageInterface<String> ialString = new ArrayList<String>();
+        stringIndividualTest(ialString);
+        System.out.println("Should be\n\ttrue\n\t" + illString.contentEquals(ialString));
+        ialString.add("1");
+        System.out.println("Should be\n\tfalse\n\t" + illString.contentEquals(ialString));
+        illString.add("1");
+        System.out.println("Should be\n\ttrue\n\t" + illString.contentEquals(ialString));
+
+    }
+}
+
