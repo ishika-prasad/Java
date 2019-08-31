@@ -23,27 +23,35 @@ public class ArrayList<T extends Comparable<T>> extends StorageAbstract<T> {
      */
     @Override
     public boolean add(T o) {
+        //Non even custom exception
+        try {
+            isEvenIntOrStringLength(o);
 
-        if(o == null){
+            if(o == null){
+                return false;
+            }
+            int length = size();
+            if(length < capacity) {
+                arr[length] = o;
+            }else {
+                capacity = capacity*2;
+                Object new_arr[] = new Object[capacity];
+                //copy the elements from previous array
+                for(int i = 0; i < length; i++) {
+                    new_arr[i] = arr[i];
+                }
+                //append the new element in new array
+                new_arr[length] = o;
+                arr = new_arr;
+            }
+            //increase the size of array by one
+            size += 1;
+            return true;
+
+        }catch (NonEvenException e) {
+            System.out.println(e.getMessage());
             return false;
         }
-        int length = size();
-        if(length < capacity) {
-            arr[length] = o;
-        }else {
-            capacity = capacity*2;
-            Object new_arr[] = new Object[capacity];
-            //copy the elements from previous array
-            for(int i = 0; i < length; i++) {
-                new_arr[i] = arr[i];
-            }
-            //append the new element in new array
-            new_arr[length] = o;
-            arr = new_arr;
-        }
-        //increase the size of array by one
-        size += 1;
-        return true;
     }
 
     /**
@@ -54,29 +62,41 @@ public class ArrayList<T extends Comparable<T>> extends StorageAbstract<T> {
      */
     @Override
     public void add(int index, T element) {
+
+        //Non even custom exception
+        try {
+            isEvenIntOrStringLength(element);
+        //Index out of bound exception
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index Out Of Bound Exception!!!");
+        }
         if(element == null) {
             return;
         }
-        if(index >= size) {
+        if(index > size) {
             System.out.println("Index exceeds size. Enter other index.");
         }else {
             int length = size;
             //increase the size of array by one
             Object new_arr[] = new Object[length+1];
             //copy the elements from previous array
-            for(int i = 0; i < length; i++) {
-                new_arr[i] =  arr[i];
-            }
-            //shift by one until reached the specified index
-            for(int i = length-1; i >= index; i--) {
-                new_arr[i+1] = new_arr[i];
-            }
+
+                for (int i = 0; i < length; i++) {
+                    new_arr[i] = arr[i];
+                }
+                //shift by one until reached the specified index
+                for (int i = length - 1; i >= index; i--) {
+                    new_arr[i + 1] = new_arr[i];
+                }
+
             new_arr[index] = element;
             //referring array to new array
             arr = new_arr;
             size += 1;
         }
-
+        }catch (NonEvenException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -98,12 +118,12 @@ public class ArrayList<T extends Comparable<T>> extends StorageAbstract<T> {
     @Override
     public boolean contains(T o) {
 
-        for(int i = 0; i < size; i++) {
-            //if element found in array
-            if(((T)arr[i]).compareTo(o) == 0) {
-                return true;
+            for (int i = 0; i < size; i++) {
+                //if element found in array
+                if (((T) arr[i]).compareTo(o) == 0) {
+                    return true;
+                }
             }
-        }
         return false;
     }
 
@@ -114,13 +134,18 @@ public class ArrayList<T extends Comparable<T>> extends StorageAbstract<T> {
      */
     @Override
     public T get(int index) {
+        //Index out of bound exception
+        if(index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index Out Of Bound Exception!!!");
+        }
         if(index < size) {
             return (T) arr[index];
         }
         else {
             //If element not found
-            return (T)new Object();
+            return null;
         }
+
     }
 
     /**
@@ -132,9 +157,8 @@ public class ArrayList<T extends Comparable<T>> extends StorageAbstract<T> {
      */
     @Override
     public int indexOf(T o) {
-
-        for(int i = 0; i < size; i++) {
-            if(((T)arr[i]).compareTo(o) == 0) {
+        for (int i = 0; i < size; i++) {
+            if (((T) arr[i]).compareTo(o) == 0) {
                 return i;
             }
         }
@@ -151,8 +175,8 @@ public class ArrayList<T extends Comparable<T>> extends StorageAbstract<T> {
     @Override
     public int lastIndexOf(T o) {
         //loop start from last
-        for(int i = size-1; i > 0; i--) {
-            if(((T)arr[i]).compareTo(o) == 0) {
+        for (int i = size - 1; i > 0; i--) {
+            if (((T) arr[i]).compareTo(o) == 0) {
                 return i;
             }
         }
@@ -166,19 +190,23 @@ public class ArrayList<T extends Comparable<T>> extends StorageAbstract<T> {
      */
     @Override
     public T remove(int index) {
-        //print array to confirm the array for now
+        //Index out of bound exception
+        if(index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index Out Of Bound Exception!!!");
+        }
         int arr_length = size;
         int length = arr_length - 1;
         Object new_arr[] = new Object[length];
         T temp = (T) arr[index];
+
         //shift elements from where index was positioned
-        for(int i = index; i < length; i++) {
+        for (int i = index; i < length; i++) {
             arr[i] = arr[i + 1];
         }
         //copy elements to new array of size one
         // less than the original array
-        for(int i = 0; i < length; i++){
-            new_arr[i] =  arr[i];
+        for (int i = 0; i < length; i++) {
+            new_arr[i] = arr[i];
         }
         //referring array to new array
         arr = new_arr;
@@ -194,13 +222,13 @@ public class ArrayList<T extends Comparable<T>> extends StorageAbstract<T> {
      */
     @Override
     public boolean remove(T o) {
-        for(int i = 0; i < size; i++) {
-            if(o.compareTo((T)arr[i]) == 0) {
+
+        for (int i = 0; i < size; i++) {
+            if (o.compareTo((T) arr[i]) == 0) {
                 remove(i);
                 return true;
             }
         }
-
         return false;
     }
 
@@ -213,14 +241,25 @@ public class ArrayList<T extends Comparable<T>> extends StorageAbstract<T> {
      */
     @Override
     public T set(int index, T element) {
+        //Non even custom exception
+        try {
+            isEvenIntOrStringLength(element);
+
+        //Index out of bound exception
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index Out Of Bound Exception!!!");
+        }
         if(index >= size()) {
             System.out.println("Index exceeds size. Enter other index.");
-            return (T)new Object();
+            return null;
         }
         T temp = (T) arr[index];
         arr[index] = element;
         return temp;
+        }catch (NonEvenException e) {
+            System.out.println(e.getMessage());
+            return (T) arr[index];
+        }
     }
-
 }
 
