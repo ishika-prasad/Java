@@ -5,7 +5,6 @@ package connecto;
  * ConnectFourInterface.
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 
 public class HumanPlayer implements ConnectFourPlayerInterface {

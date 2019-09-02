@@ -5,7 +5,6 @@ package connecto;
  * by HumanPlayer class
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 
 interface ConnectFourPlayerInterface

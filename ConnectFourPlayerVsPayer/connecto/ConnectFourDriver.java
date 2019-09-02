@@ -12,7 +12,6 @@ package connecto;
  * with two human players.
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 
 public class ConnectFourDriver

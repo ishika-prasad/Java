@@ -6,7 +6,6 @@ package connecto;
  * horizontally and diagonally.
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 
 import java.util.Scanner;
