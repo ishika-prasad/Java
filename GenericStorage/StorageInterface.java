@@ -2,7 +2,6 @@
  * This is interface provided to implement.
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 public interface StorageInterface<T extends Comparable>
 {

@@ -10,7 +10,6 @@
  * and Linkedlist.
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 
 public abstract class StorageAbstract<T extends Comparable<T>> implements StorageInterface<T> {

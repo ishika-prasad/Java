@@ -9,7 +9,6 @@
  * Test class for Integer type and String type
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 public class GenericStorageTest
 {

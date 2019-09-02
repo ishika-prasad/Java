@@ -10,7 +10,6 @@
  * and performs operations on them.
  *
  * @author      Ishika Prasad
- * @author      Pavitra Sapaliga
  *
  */
 public class LinkedList<T extends Comparable<T>> extends StorageAbstract<T> {

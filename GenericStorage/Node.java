@@ -9,7 +9,6 @@
  * This class is Node class with prev and next pointer
  *
  * @author      Ishika Prasad
- * @author      Pavitra Sapaliga
  *
  */
 class Node<T> {
