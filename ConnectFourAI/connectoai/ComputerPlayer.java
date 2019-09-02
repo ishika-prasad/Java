@@ -5,7 +5,6 @@ package connectoai;
  * for the computer play for the connect four game.
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 
 import java.util.Random;

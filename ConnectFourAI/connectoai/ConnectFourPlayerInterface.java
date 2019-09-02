@@ -5,7 +5,6 @@ package connectoai;
  * by HumanPlayer class
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 interface ConnectFourPlayerInterface
 {

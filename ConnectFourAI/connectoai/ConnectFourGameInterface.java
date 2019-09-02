@@ -5,7 +5,6 @@ package connectoai;
  * by ConnectFourGame class
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 public interface ConnectFourGameInterface
 {

@@ -5,7 +5,6 @@ package connectoai;
  * ConnectFourInterface.
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 import java.util.Scanner;
 

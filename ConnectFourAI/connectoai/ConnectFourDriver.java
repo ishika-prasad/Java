@@ -13,7 +13,6 @@ package connectoai;
  * one computer player and two computer players.
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 
 public class ConnectFourDriver
