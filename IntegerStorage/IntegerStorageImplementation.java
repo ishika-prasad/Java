@@ -4,7 +4,6 @@
  * and Linkedlist.
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 
 public abstract class IntegerStorageImplementation implements IntegerStorage {

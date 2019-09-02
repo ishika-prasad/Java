@@ -1,7 +1,6 @@
 /**
  * This class is Node class with prev and next pointer
  *
- * @author      Pavitra Sapaliga
  * @author      Ishika Prasad
  */
 class Node {

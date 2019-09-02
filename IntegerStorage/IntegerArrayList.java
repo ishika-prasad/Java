@@ -10,7 +10,6 @@
  * using array.
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 public class IntegerArrayList extends IntegerStorageImplementation {
     int initialCapacity = 10;

@@ -2,7 +2,6 @@
  * Test class provided
  *
  * @author  Ishika Prasad
- * @author  Pavitra Sapaliga
  */
 public class IntegerStorageTest
 {

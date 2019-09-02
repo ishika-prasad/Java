@@ -2,7 +2,6 @@
  * This class implements a double linked list with int values as input
  * and performs operations on them.
  *
- * @author      Pavitra Sapaliga
  * @author      Ishika Prasad
  */
 public class IntegerLinkedList extends IntegerStorageImplementation {
